@@ -1,5 +1,6 @@
 package net.yuuzu.media.picker
 
+import kotlinx.cinterop.ExperimentalForeignApi
 import net.yuuzu.media.data.AppBitmap
 import net.yuuzu.media.data.CanceledException
 import net.yuuzu.media.data.Media
@@ -87,6 +88,7 @@ internal class ImagePickerDelegateToContinuation constructor(
         }
     }
 
+    @OptIn(ExperimentalForeignApi::class)
     private fun fetchThumbnail(videoAsset: AVAsset): UIImage {
         val imageGenerator = AVAssetImageGenerator(
             asset = videoAsset

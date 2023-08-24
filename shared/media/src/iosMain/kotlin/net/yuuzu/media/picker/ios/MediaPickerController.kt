@@ -1,5 +1,6 @@
 package net.yuuzu.media.picker.ios
 
+import kotlinx.cinterop.ExperimentalForeignApi
 import net.yuuzu.media.Permission
 import net.yuuzu.media.PermissionsController
 import net.yuuzu.media.data.AppBitmap
@@ -151,6 +152,7 @@ class MediaPickerController(
         return media
     }
 
+    @OptIn(ExperimentalForeignApi::class)
     internal companion object {
         val kVideoType = CFBridgingRelease(kUTTypeVideo) as String
         val kMovieType = CFBridgingRelease(kUTTypeMovie) as String

@@ -1,5 +1,6 @@
 package net.yuuzu.media.data
 
+import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -33,7 +34,7 @@ class ImageGalleryImpl : ImageGallery {
         }
     }
 
-    @OptIn(DelicateCoroutinesApi::class)
+    @OptIn(DelicateCoroutinesApi::class, ExperimentalForeignApi::class)
     private fun fetchImages(completion: (List<Pair<UIImage, NSURL>>) -> Unit) {
         val fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors =

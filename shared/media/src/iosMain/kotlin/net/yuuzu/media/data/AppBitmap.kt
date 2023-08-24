@@ -4,6 +4,7 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.toComposeImageBitmap
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.CPointer
+import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.get
 import kotlinx.cinterop.reinterpret
 import kotlinx.cinterop.useContents
@@ -18,6 +19,7 @@ import platform.UIKit.UIImageJPEGRepresentation
 import org.jetbrains.skia.Image
 import platform.Foundation.base64Encoding
 
+@OptIn(ExperimentalForeignApi::class)
 actual class AppBitmap(private val image: UIImage) {
     actual fun toByteArray(): ByteArray {
         val imageData = UIImageJPEGRepresentation(image, COMPRESSION_QUALITY)
